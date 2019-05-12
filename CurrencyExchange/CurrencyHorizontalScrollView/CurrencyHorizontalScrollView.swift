@@ -121,4 +121,10 @@ class CurrencyHorizontalScrollView : UIView {
             card.delegate = viewController
         }
     }
+    
+    func SetCardsColor(color : UIColor){
+        for card in CurrencyCardViews {
+            card.backgroundColor = color
+        }
+    }
 }

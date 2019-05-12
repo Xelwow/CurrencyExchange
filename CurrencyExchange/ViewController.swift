@@ -24,16 +24,18 @@ class ViewController: UIViewController, CurrencyCardViewProtocol, CurrencyHorizo
         super.viewDidLoad()
         
         ExchangeButton.layer.cornerRadius = 8
-        ExchangeButton.layer.borderWidth = 2
-        ExchangeButton.layer.borderColor = UIColor.black.cgColor
+        //ExchangeButton.layer.borderWidth = 2
+        //ExchangeButton.layer.borderColor = ExchangeButton.backgroundColor?.cgColor
         
         let CurrencyAccountInfos = [CurrencyAccountInfo(Amount: 100, Currency: "EUR"), CurrencyAccountInfo(Amount: 100, Currency: "USD"), CurrencyAccountInfo(Amount: 100, Currency: "GBP")]
         Exchanger = CurrencyExchanger(accounts: CurrencyAccountInfos)
         testConfiguration()
         ReplenishmentAccountCards.delegate = self
         ReplenishmentAccountCards.DelegateAllCards(to: self)
+        ReplenishmentAccountCards.SetCardsColor(color: UIColor(red: 128.0 / 255.0, green: 255.0 / 255.0, blue: 80.0 / 255.0, alpha: 1.0))
         DebitAccountCards.delegate = self
         DebitAccountCards.DelegateAllCards(to: self)
+        DebitAccountCards.SetCardsColor(color: UIColor(red: 48.0 / 255.0, green: 78.0 / 255.0, blue: 255.0 / 255.0, alpha: 1.0))
         
         timer = Timer.scheduledTimer(withTimeInterval: 30, repeats: true, block: { (schedTimer) in
             self.Exchanger.UpdateRates {
@@ -125,10 +127,10 @@ class ViewController: UIViewController, CurrencyCardViewProtocol, CurrencyHorizo
     
     @IBAction func Exchange_Button_TouchUpInside(_ sender: Any) {
         let message = Exchanger.Exchange()
-        updateTextFields()
         let alert = UIAlertController(title: "Exchange", message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
             alert.dismiss(animated: true, completion: nil)
+            self.updateTextFields()
         }))
         self.present(alert, animated: true, completion: nil)
     }

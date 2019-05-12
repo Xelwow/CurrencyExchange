@@ -144,7 +144,6 @@ class CurrencyExchanger {
                 return
             }
             else {
-                print(data!.debugDescription)
                 let decoder = JSONDecoder()
                 let rates = try? decoder.decode(ExchangeRates.self, from: data!)
                 if rates != nil {

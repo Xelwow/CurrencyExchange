@@ -36,6 +36,7 @@ class CurrencyCardView : UIView, UITextFieldDelegate {
         self.addSubview(ExchangeSum_TextField)
         self.addSubview(SelectedCurrencyAccountAmount_Label)
         self.addSubview(ExchangeRate_Label)
+        self.layer.cornerRadius = 10
         ExchangeSum_TextField.delegate = self
         print("B")
     }
@@ -63,7 +64,7 @@ class CurrencyCardView : UIView, UITextFieldDelegate {
                 }
                 else {
                     var range = NSRange(location: 0, length: text.utf16.count)
-                    let doubleRegex = try! NSRegularExpression(pattern: "^[1-9][0-9]{0,6}[.][0-9]{1,2}$", options: [])
+                    let doubleRegex = try! NSRegularExpression(pattern: "^[0-9]{1,7}[.][0-9]{1,2}$", options: [])
                     if doubleRegex.firstMatch(in: text, options: [], range: range) == nil {
                         text = String(text.dropLast())
                         range = NSRange(location: 0, length: text.utf16.count)
@@ -76,7 +77,17 @@ class CurrencyCardView : UIView, UITextFieldDelegate {
                     }
                 }
             }
-            else {shouldChangeCursorPosition = true}
+            else {
+                let numbersRegEx = try! NSRegularExpression(pattern: "^[0-9]$", options: [])
+                let range = NSRange(location: 0, length: text.utf16.count)
+                if (numbersRegEx.firstMatch(in: text, options: [], range: range) != nil) {
+                    shouldChangeCursorPosition = true
+                }
+                else {
+                    ExchangeSum_TextField.text = ""
+                }
+                
+            }
         }
         
         if delegate == nil  {return}
@@ -100,6 +111,20 @@ class CurrencyCardView : UIView, UITextFieldDelegate {
         SelectedCurrencyAccountAmount_Label.text = configInfo.selectedCurrencyAccountAmount
         ExchangeRate_Label.text = configInfo.exchangeRate
         ExchangeSum_TextField.text = configInfo.exchangeAmount
+    }
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if string.contains(",")  {
+            let text = ExchangeSum_TextField.text!
+            let distance = text.distance(from: text.firstIndex(of: text.first!)! , to: text.firstIndex(of: ".")!)
+            let currentPosition = ExchangeSum_TextField.offset(from: ExchangeSum_TextField.beginningOfDocument, to: ExchangeSum_TextField.selectedTextRange!.start)
+            let toDecimals = currentPosition > distance ? false : true
+            let offset = toDecimals ? -(text.count  - distance - 1) : distance
+            let from = toDecimals ? ExchangeSum_TextField.endOfDocument : ExchangeSum_TextField.beginningOfDocument
+            let newPosition = ExchangeSum_TextField.position(from: from, offset: offset)
+            ExchangeSum_TextField.selectedTextRange = ExchangeSum_TextField.textRange(from: newPosition!, to: newPosition!)
+            return false
+        }
+        return true
     }
     
 }
