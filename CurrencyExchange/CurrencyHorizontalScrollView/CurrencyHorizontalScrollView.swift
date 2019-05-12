@@ -22,6 +22,8 @@ class CurrencyHorizontalScrollView : UIView {
     var selectedCurrencyCardIndex = 0
     var delegate : CurrencyHorizontalScrollViewDelegate?
     
+    var distanceToEndOfScreen : CGFloat = 17
+    var distanceBetweenCards : CGFloat = 8
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -32,9 +34,19 @@ class CurrencyHorizontalScrollView : UIView {
         super.init(coder: aDecoder)
         Setup()
     }
+    func AdaptToScrinSize(){
+        let cardsWidth = self.frame.width - distanceToEndOfScreen * 2
+        let cardsHeight = Selected_CurrencyCardView.frame.height
+        let cardsY = Selected_CurrencyCardView.frame.origin.y
+        Selected_CurrencyCardView.frame = CGRect(x: distanceToEndOfScreen, y: cardsY, width: cardsWidth, height: cardsHeight)
+        Preview_CurrencyCardView.frame = CGRect(x: Selected_CurrencyCardView.frame.origin.x - cardsWidth - distanceBetweenCards, y: cardsY, width: cardsWidth, height: cardsHeight)
+        Next_CurrencyCardView.frame = CGRect(x: Selected_CurrencyCardView.frame.origin.x + cardsWidth + distanceBetweenCards, y: cardsY, width: cardsWidth, height: cardsHeight)
+    }
     
     func Setup(){
         Bundle.main.loadNibNamed("CurrencyHorizontalScrollView", owner: self, options: nil)
+        
+        
         self.addSubview(Preview_CurrencyCardView)
         self.addSubview(Selected_CurrencyCardView)
         self.addSubview(Next_CurrencyCardView)
@@ -65,11 +77,11 @@ class CurrencyHorizontalScrollView : UIView {
         var firstStep : CGFloat = 0
         var secondStep : CGFloat = 0
         if rightNotLeft {
-            firstStep = 17
+            firstStep = distanceToEndOfScreen
             secondStep = Selected_CurrencyCardView.frame.width + 8 - firstStep
         }
         else {
-            firstStep = -17
+            firstStep = -distanceToEndOfScreen
             secondStep = -(Selected_CurrencyCardView.frame.width + 8 + firstStep)
         }
         UIView.animate(withDuration: 0.3) {
@@ -79,10 +91,10 @@ class CurrencyHorizontalScrollView : UIView {
         }
         //Magic
         if rightNotLeft {
-            Next_CurrencyCardView.frame.origin.x = Preview_CurrencyCardView.frame.origin.x - Next_CurrencyCardView.frame.width - 8
+            Next_CurrencyCardView.frame.origin.x = Preview_CurrencyCardView.frame.origin.x - Next_CurrencyCardView.frame.width - distanceBetweenCards
         }
         else {
-            Preview_CurrencyCardView.frame.origin.x = Next_CurrencyCardView.frame.origin.x + Preview_CurrencyCardView.frame.width + 8
+            Preview_CurrencyCardView.frame.origin.x = Next_CurrencyCardView.frame.origin.x + Preview_CurrencyCardView.frame.width + distanceBetweenCards
         }
         //Second animation part
         UIView.animate(withDuration: 0.3) {

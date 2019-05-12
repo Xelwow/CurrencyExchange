@@ -19,22 +19,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FxV-rl-Ugi" customClass="CurrencyHorizontalScrollView" customModule="CurrencyExchange" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="50" width="375" height="130"/>
+                                <rect key="frame" x="0.0" y="30" width="375" height="130"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="130" id="b95-mT-qeF"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZvL-7J-nru" customClass="CurrencyHorizontalScrollView" customModule="CurrencyExchange" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="215" width="375" height="130"/>
+                                <rect key="frame" x="0.0" y="190" width="375" height="130"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="130" id="sB3-Bx-f7L"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ume-B7-OTp">
-                                <rect key="frame" x="147.5" y="380" width="80" height="30"/>
+                                <rect key="frame" x="112.5" y="335" width="150" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="80" id="cV9-60-q0C"/>
+                                    <constraint firstAttribute="width" constant="150" id="EyS-yO-N68"/>
+                                    <constraint firstAttribute="height" constant="50" id="fVT-sK-uFB"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Exchange">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -46,13 +48,13 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="FxV-rl-Ugi" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="0ov-AO-RkV"/>
-                            <constraint firstItem="ZvL-7J-nru" firstAttribute="top" secondItem="FxV-rl-Ugi" secondAttribute="bottom" constant="35" id="BTx-AM-D7s"/>
+                            <constraint firstItem="ZvL-7J-nru" firstAttribute="top" secondItem="FxV-rl-Ugi" secondAttribute="bottom" constant="30" id="BTx-AM-D7s"/>
                             <constraint firstItem="ZvL-7J-nru" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Dxe-cu-gfb"/>
-                            <constraint firstItem="FxV-rl-Ugi" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="F9P-er-r1T"/>
+                            <constraint firstItem="FxV-rl-Ugi" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="F9P-er-r1T"/>
                             <constraint firstItem="ume-B7-OTp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="JsV-98-Sh8"/>
                             <constraint firstItem="FxV-rl-Ugi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="YeL-B5-NVN"/>
                             <constraint firstItem="ZvL-7J-nru" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="e40-Nd-m3X"/>
-                            <constraint firstItem="ume-B7-OTp" firstAttribute="top" secondItem="ZvL-7J-nru" secondAttribute="bottom" constant="35" id="gf2-0d-qgj"/>
+                            <constraint firstItem="ume-B7-OTp" firstAttribute="top" secondItem="ZvL-7J-nru" secondAttribute="bottom" constant="15" id="gf2-0d-qgj"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

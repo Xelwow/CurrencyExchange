@@ -17,7 +17,6 @@
 		8470E6DF2278D7AA00D85F20 /* CurrencyExchangeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8470E6DE2278D7AA00D85F20 /* CurrencyExchangeUITests.swift */; };
 		84720F6D227E2D32009F1A95 /* ExchangeRates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84720F6C227E2D32009F1A95 /* ExchangeRates.swift */; };
 		84752A67227D82DB00ED1383 /* CurrencyAccountInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84752A66227D82DB00ED1383 /* CurrencyAccountInfo.swift */; };
-		847CE4AE227C28E1004093F2 /* ExchangeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847CE4AD227C28E1004093F2 /* ExchangeAPI.swift */; };
 		847CE4B0227C3335004093F2 /* CurrencyCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847CE4AF227C3335004093F2 /* CurrencyCardView.swift */; };
 		847CE4B2227C3346004093F2 /* CurrencyCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 847CE4B1227C3346004093F2 /* CurrencyCardView.xib */; };
 		847CE4B6227C379C004093F2 /* CurrencyHorizontalScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847CE4B5227C379C004093F2 /* CurrencyHorizontalScrollView.swift */; };
@@ -58,7 +57,6 @@
 		8470E6E02278D7AA00D85F20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84720F6C227E2D32009F1A95 /* ExchangeRates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRates.swift; sourceTree = "<group>"; };
 		84752A66227D82DB00ED1383 /* CurrencyAccountInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyAccountInfo.swift; sourceTree = "<group>"; };
-		847CE4AD227C28E1004093F2 /* ExchangeAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeAPI.swift; sourceTree = "<group>"; };
 		847CE4AF227C3335004093F2 /* CurrencyCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyCardView.swift; sourceTree = "<group>"; };
 		847CE4B1227C3346004093F2 /* CurrencyCardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CurrencyCardView.xib; sourceTree = "<group>"; };
 		847CE4B5227C379C004093F2 /* CurrencyHorizontalScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyHorizontalScrollView.swift; sourceTree = "<group>"; };
@@ -93,7 +91,6 @@
 		846DAB4E2286FDF7005AD3A3 /* Exchanger */ = {
 			isa = PBXGroup;
 			children = (
-				847CE4AD227C28E1004093F2 /* ExchangeAPI.swift */,
 				84720F6C227E2D32009F1A95 /* ExchangeRates.swift */,
 				846DAB4C2286F839005AD3A3 /* CurrencyExchanger.swift */,
 				84752A66227D82DB00ED1383 /* CurrencyAccountInfo.swift */,
@@ -306,7 +303,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				847CE4AE227C28E1004093F2 /* ExchangeAPI.swift in Sources */,
 				847CE4B6227C379C004093F2 /* CurrencyHorizontalScrollView.swift in Sources */,
 				846DAB4D2286F839005AD3A3 /* CurrencyExchanger.swift in Sources */,
 				8470E6C12278D7A800D85F20 /* ViewController.swift in Sources */,
@@ -498,7 +494,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Xelwow.CurrencyExchange;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -516,7 +512,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Xelwow.CurrencyExchange;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

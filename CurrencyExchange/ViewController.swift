@@ -12,13 +12,21 @@ class ViewController: UIViewController, CurrencyCardViewProtocol, CurrencyHorizo
     @IBOutlet weak var ReplenishmentAccountCards : CurrencyHorizontalScrollView!
     @IBOutlet weak var DebitAccountCards : CurrencyHorizontalScrollView!
     @IBOutlet weak var ExchangeButton : UIButton!
-    
+    var timer : Timer!
     var Exchanger : CurrencyExchanger!
     var DebitExchangeSum : Double = 0
     var ReplenishmentExchangeSum : Double = 0
-    
+    override func viewDidAppear(_ animated: Bool) {
+        DebitAccountCards.AdaptToScrinSize()
+        ReplenishmentAccountCards.AdaptToScrinSize()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        ExchangeButton.layer.cornerRadius = 8
+        ExchangeButton.layer.borderWidth = 2
+        ExchangeButton.layer.borderColor = UIColor.black.cgColor
+        
         let CurrencyAccountInfos = [CurrencyAccountInfo(Amount: 100, Currency: "EUR"), CurrencyAccountInfo(Amount: 100, Currency: "USD"), CurrencyAccountInfo(Amount: 100, Currency: "GBP")]
         Exchanger = CurrencyExchanger(accounts: CurrencyAccountInfos)
         testConfiguration()
@@ -26,6 +34,13 @@ class ViewController: UIViewController, CurrencyCardViewProtocol, CurrencyHorizo
         ReplenishmentAccountCards.DelegateAllCards(to: self)
         DebitAccountCards.delegate = self
         DebitAccountCards.DelegateAllCards(to: self)
+        
+        timer = Timer.scheduledTimer(withTimeInterval: 3, repeats: true, block: { (schedTimer) in
+            self.Exchanger.UpdateRates {
+                self.updateTextFields()
+            }
+        })
+        
     }
     
     func ExchangeSumChanged(from Card: CurrencyCardView, sum: String){

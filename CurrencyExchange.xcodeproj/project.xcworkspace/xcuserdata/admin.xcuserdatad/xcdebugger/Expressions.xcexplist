@@ -3,13 +3,10 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "CurrencyExchanger.PreviewAccount(debitNotReplenishment:):CurrencyExchanger.swift">
+         contextName = "CurrencyHorizontalScrollView.Setup():CurrencyHorizontalScrollView.swift">
          <PersistentStrings>
             <PersistentString
-               value = "DebitAccountIndex">
-            </PersistentString>
-            <PersistentString
-               value = "CurrencyAccountInfos.count">
+               value = "self.frame.width">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -17,10 +14,26 @@
          contextName = "ViewController.testConfiguration():ViewController.swift">
       </ContextState>
       <ContextState
+         contextName = "CurrencyCardView.ExchangeSum_TextField_EditingChanged(_:):CurrencyCardView.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "ExchangeSum_TextField.text!">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "CurrencyCardView.Configure(Currency:SelectedCurrencyAccountAmount:ExchangeRate:):CurrencyCardView.swift">
       </ContextState>
       <ContextState
          contextName = "CurrencyHorizontalScrollView.Preview_CurrencyCardView.setter:CurrencyHorizontalScrollView.swift">
+      </ContextState>
+      <ContextState
+         contextName = "CurrencyHorizontalScrollView.AdaptToScrinSize():CurrencyHorizontalScrollView.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.frame.width">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "ExchangeRates.rate(from:to:):ExchangeRates.swift">
@@ -37,13 +50,21 @@
          contextName = "CurrencyHorizontalScrollView.Next_CurrencyCardView.setter:CurrencyHorizontalScrollView.swift">
       </ContextState>
       <ContextState
+         contextName = "CurrencyExchanger.PreviewAccount(debitNotReplenishment:):CurrencyExchanger.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "DebitAccountIndex">
+            </PersistentString>
+            <PersistentString
+               value = "CurrencyAccountInfos.count">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "CurrencyHorizontalScrollView.Selected_CurrencyCardView.setter:CurrencyHorizontalScrollView.swift">
       </ContextState>
       <ContextState
          contextName = "closure #1 in CurrencyHorizontalScrollView.SwipeAnimation(leftNotRight:):CurrencyHorizontalScrollView.swift">
-      </ContextState>
-      <ContextState
-         contextName = "CurrencyHorizontalScrollView.Setup():CurrencyHorizontalScrollView.swift">
       </ContextState>
    </ContextStates>
 </VariablesViewState>

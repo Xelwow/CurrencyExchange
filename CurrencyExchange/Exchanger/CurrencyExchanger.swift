@@ -25,7 +25,6 @@ class CurrencyExchanger {
     var CurrancySymbols : [String : String] = ["EUR" : "€", "USD" : "$", "GBP" : "£"]
     var CurrencyAccountInfos : [CurrencyAccountInfo] = []
     var Rates = ExchangeRates()
-    
     var DebitAccountIndex = 0
     var ReplenishmentAccountIndex = 1
     
@@ -95,7 +94,7 @@ class CurrencyExchanger {
         }
         let fromCurrency = CurrencyAccountInfos[from].Currency
         let toCurrency = CurrencyAccountInfos[to].Currency
-        let selectedCurrencyAccountAmount = "Account amount: \(CurrancySymbols[fromCurrency]!)\(CurrencyAccountInfos[from].Amount)"
+        let selectedCurrencyAccountAmount = "You have: \(CurrancySymbols[fromCurrency]!)\(CurrencyAccountInfos[from].Amount)"
         let exchangeRate = rate(from: CurrencyAccountInfos[from].Currency
             , to: CurrencyAccountInfos[to].Currency)
         let exchangeRateInfoString = "\(CurrancySymbols[fromCurrency]!)1 = \(CurrancySymbols[toCurrency]!)\(exchangeRate)"
@@ -132,5 +131,28 @@ class CurrencyExchanger {
     }
     func AccountsInformation() -> [CurrencyAccountInfo]{
         return CurrencyAccountInfos
+    }
+    
+    func UpdateRates(completionHandler: @escaping () -> Void){
+        let url = URL(string: "https://api.exchangeratesapi.io/latest")!
+        
+        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+            if error != nil {
+                
+                return
+            }
+            else {
+                print(data!.debugDescription)
+                let decoder = JSONDecoder()
+                let rates = try? decoder.decode(ExchangeRates.self, from: data!)
+                if rates != nil {
+                    DispatchQueue.main.async {
+                        self.Rates = rates!
+                        completionHandler()
+                    }
+                }
+            }
+        }
+        task.resume()
     }
 }
