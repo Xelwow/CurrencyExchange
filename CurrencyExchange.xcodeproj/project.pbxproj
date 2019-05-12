@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		846DAB4D2286F839005AD3A3 /* CurrencyExchanger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846DAB4C2286F839005AD3A3 /* CurrencyExchanger.swift */; };
 		8470E6BF2278D7A800D85F20 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8470E6BE2278D7A800D85F20 /* AppDelegate.swift */; };
 		8470E6C12278D7A800D85F20 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8470E6C02278D7A800D85F20 /* ViewController.swift */; };
 		8470E6C42278D7A800D85F20 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8470E6C22278D7A800D85F20 /* Main.storyboard */; };
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		846DAB4C2286F839005AD3A3 /* CurrencyExchanger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyExchanger.swift; sourceTree = "<group>"; };
 		8470E6BB2278D7A800D85F20 /* CurrencyExchange.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CurrencyExchange.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8470E6BE2278D7A800D85F20 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8470E6C02278D7A800D85F20 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -88,6 +90,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		846DAB4E2286FDF7005AD3A3 /* Exchanger */ = {
+			isa = PBXGroup;
+			children = (
+				847CE4AD227C28E1004093F2 /* ExchangeAPI.swift */,
+				84720F6C227E2D32009F1A95 /* ExchangeRates.swift */,
+				846DAB4C2286F839005AD3A3 /* CurrencyExchanger.swift */,
+				84752A66227D82DB00ED1383 /* CurrencyAccountInfo.swift */,
+			);
+			path = Exchanger;
+			sourceTree = "<group>";
+		};
 		8470E6B22278D7A800D85F20 = {
 			isa = PBXGroup;
 			children = (
@@ -111,16 +124,14 @@
 		8470E6BD2278D7A800D85F20 /* CurrencyExchange */ = {
 			isa = PBXGroup;
 			children = (
+				846DAB4E2286FDF7005AD3A3 /* Exchanger */,
 				847CE4B4227C3775004093F2 /* CurrencyHorizontalScrollView */,
 				8470E6BE2278D7A800D85F20 /* AppDelegate.swift */,
-				84752A66227D82DB00ED1383 /* CurrencyAccountInfo.swift */,
 				8470E6C02278D7A800D85F20 /* ViewController.swift */,
 				8470E6C22278D7A800D85F20 /* Main.storyboard */,
 				8470E6C52278D7AA00D85F20 /* Assets.xcassets */,
 				8470E6C72278D7AA00D85F20 /* LaunchScreen.storyboard */,
 				8470E6CA2278D7AA00D85F20 /* Info.plist */,
-				847CE4AD227C28E1004093F2 /* ExchangeAPI.swift */,
-				84720F6C227E2D32009F1A95 /* ExchangeRates.swift */,
 			);
 			path = CurrencyExchange;
 			sourceTree = "<group>";
@@ -297,6 +308,7 @@
 			files = (
 				847CE4AE227C28E1004093F2 /* ExchangeAPI.swift in Sources */,
 				847CE4B6227C379C004093F2 /* CurrencyHorizontalScrollView.swift in Sources */,
+				846DAB4D2286F839005AD3A3 /* CurrencyExchanger.swift in Sources */,
 				8470E6C12278D7A800D85F20 /* ViewController.swift in Sources */,
 				847CE4B0227C3335004093F2 /* CurrencyCardView.swift in Sources */,
 				84720F6D227E2D32009F1A95 /* ExchangeRates.swift in Sources */,

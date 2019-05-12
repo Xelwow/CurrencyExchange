@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "CurrencyExchanger.PreviewAccount(debitNotReplenishment:):CurrencyExchanger.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "DebitAccountIndex">
+            </PersistentString>
+            <PersistentString
+               value = "CurrencyAccountInfos.count">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ViewController.testConfiguration():ViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "CurrencyCardView.Configure(Currency:SelectedCurrencyAccountAmount:ExchangeRate:):CurrencyCardView.swift">
+      </ContextState>
+      <ContextState
+         contextName = "CurrencyHorizontalScrollView.Preview_CurrencyCardView.setter:CurrencyHorizontalScrollView.swift">
+      </ContextState>
+      <ContextState
+         contextName = "ExchangeRates.rate(from:to:):ExchangeRates.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "rates[to]">
+            </PersistentString>
+            <PersistentString
+               value = "rates[from]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "CurrencyHorizontalScrollView.Next_CurrencyCardView.setter:CurrencyHorizontalScrollView.swift">
+      </ContextState>
+      <ContextState
+         contextName = "CurrencyHorizontalScrollView.Selected_CurrencyCardView.setter:CurrencyHorizontalScrollView.swift">
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in CurrencyHorizontalScrollView.SwipeAnimation(leftNotRight:):CurrencyHorizontalScrollView.swift">
+      </ContextState>
+      <ContextState
+         contextName = "CurrencyHorizontalScrollView.Setup():CurrencyHorizontalScrollView.swift">
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

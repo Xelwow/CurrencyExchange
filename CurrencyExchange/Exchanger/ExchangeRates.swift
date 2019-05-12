@@ -32,7 +32,7 @@ class ExchangeRates : Codable {
             return rates[to] != nil ? rates[to]! : 0
         }
         if to == base {
-            return rates[to] != nil ? 1 / rates[from]! : 0
+            return rates[from] != nil ? 1 / rates[from]! : 0
         }
         return 0
     }

@@ -23,17 +23,17 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mIK-DE-wop" customClass="CurrencyCardView" customModule="CurrencyExchange" customModuleProvider="target">
-                    <rect key="frame" x="17" y="10" width="340" height="120"/>
+                    <rect key="frame" x="17" y="10" width="341" height="120"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                 </view>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cuE-2Z-nI5" customClass="CurrencyCardView" customModule="CurrencyExchange" customModuleProvider="target">
-                    <rect key="frame" x="365" y="10" width="340" height="120"/>
+                    <rect key="frame" x="365" y="10" width="341" height="120"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                 </view>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rGS-R6-ug4" customClass="CurrencyCardView" customModule="CurrencyExchange" customModuleProvider="target">
-                    <rect key="frame" x="-331" y="10" width="340" height="120"/>
+                    <rect key="frame" x="-331" y="10" width="341" height="120"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                 </view>

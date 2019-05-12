@@ -10,8 +10,8 @@ import Foundation
 import UIKit
 
 protocol CurrencyHorizontalScrollViewDelegate {
-    func PrevCardSelection(card : CurrencyCardView)
-    func NextCardSelection(card : CurrencyCardView)
+    func PrevCardSelection(sender : CurrencyHorizontalScrollView)
+    func NextCardSelection(sender : CurrencyHorizontalScrollView)
 }
 
 class CurrencyHorizontalScrollView : UIView {
@@ -30,51 +30,83 @@ class CurrencyHorizontalScrollView : UIView {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        //Setup()
+        Setup()
     }
     
     func Setup(){
+        Bundle.main.loadNibNamed("CurrencyHorizontalScrollView", owner: self, options: nil)
+        self.addSubview(Preview_CurrencyCardView)
+        self.addSubview(Selected_CurrencyCardView)
+        self.addSubview(Next_CurrencyCardView)
         CurrencyCardViews = [Preview_CurrencyCardView, Selected_CurrencyCardView, Next_CurrencyCardView]
         selectedCurrencyCardIndex = 1
-        let swipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(recognizer:)))
-        self.addGestureRecognizer(swipeGestureRecognizer)
-        Bundle.main.loadNibNamed("CurrencyHorizontalScrollView", owner: self, options: nil)
+        let leftSwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(recognizer:)))
+        leftSwipeGestureRecognizer.direction = .left
+        let rightSwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(recognizer:)))
+        self.addGestureRecognizer(leftSwipeGestureRecognizer)
+        self.addGestureRecognizer(rightSwipeGestureRecognizer)
     }
     
     @objc func handleSwipe(recognizer: UISwipeGestureRecognizer){
-        if recognizer.direction == .left{
-            delegate?.PrevCardSelection(card: Preview_CurrencyCardView)
-            SwipeAnimation(leftNotRight: true)
-        }
-        if recognizer.direction == .right{
-            delegate?.NextCardSelection(card: Next_CurrencyCardView)
-            SwipeAnimation(leftNotRight: false)
+        switch recognizer.direction {
+        case .right:
+            delegate?.PrevCardSelection(sender: self)
+            SwipeAnimation(rightNotLeft: true)
+        case .left:
+            delegate?.NextCardSelection(sender: self)
+            SwipeAnimation(rightNotLeft: false)
+        default:
+            break
         }
     }
     
-    func SwipeAnimation(leftNotRight : Bool){
-        
+    func SwipeAnimation(rightNotLeft : Bool){
         //First animation part
-        UIView.animate(withDuration: 1) {
+        var firstStep : CGFloat = 0
+        var secondStep : CGFloat = 0
+        if rightNotLeft {
+            firstStep = 17
+            secondStep = Selected_CurrencyCardView.frame.width + 8 - firstStep
+        }
+        else {
+            firstStep = -17
+            secondStep = -(Selected_CurrencyCardView.frame.width + 8 + firstStep)
+        }
+        UIView.animate(withDuration: 0.3) {
             for card in self.CurrencyCardViews {
-                card.frame.origin.x += 15
+                card.frame.origin.x += firstStep
             }
         }
-        
         //Magic
-        Next_CurrencyCardView.frame.origin.x = Preview_CurrencyCardView.frame.origin.x - Next_CurrencyCardView.frame.width - 15
-        
+        if rightNotLeft {
+            Next_CurrencyCardView.frame.origin.x = Preview_CurrencyCardView.frame.origin.x - Next_CurrencyCardView.frame.width - 8
+        }
+        else {
+            Preview_CurrencyCardView.frame.origin.x = Next_CurrencyCardView.frame.origin.x + Preview_CurrencyCardView.frame.width + 8
+        }
         //Second animation part
-        UIView.animate(withDuration: 1) {
+        UIView.animate(withDuration: 0.3) {
             for card in self.CurrencyCardViews {
-                card.frame.origin.x += (card.frame.width - 15)
+                card.frame.origin.x += secondStep
             }
         }
-        
-        let buffer: CurrencyCardView = Preview_CurrencyCardView
-        Preview_CurrencyCardView = Next_CurrencyCardView
-        Next_CurrencyCardView = Selected_CurrencyCardView
-        Selected_CurrencyCardView = buffer
-        
+        if rightNotLeft {
+            let buffer = Preview_CurrencyCardView
+            Preview_CurrencyCardView = Next_CurrencyCardView
+            Next_CurrencyCardView = Selected_CurrencyCardView
+            Selected_CurrencyCardView = buffer
+        }
+        else {
+            let buffer = Next_CurrencyCardView
+            Next_CurrencyCardView = Preview_CurrencyCardView
+            Preview_CurrencyCardView = Selected_CurrencyCardView
+            Selected_CurrencyCardView = buffer
+        }
+    }
+    
+    func DelegateAllCards(to viewController: ViewController){
+        for card in CurrencyCardViews {
+            card.delegate = viewController
+        }
     }
 }

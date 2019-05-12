@@ -9,8 +9,8 @@
 import Foundation
 
 class CurrencyAccountInfo {
-    var Amount : Double = 100
-    var Currency = "EUR"
+    var Amount : Double
+    var Currency : String
     
     init(Amount : Double, Currency : String){
         self.Amount = Amount

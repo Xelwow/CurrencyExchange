@@ -18,22 +18,47 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FxV-rl-Ugi" customClass="CurrencyHorizontalScrollView" customModule="CurrencyExchange" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="47" width="375" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FxV-rl-Ugi" customClass="CurrencyHorizontalScrollView" customModule="CurrencyExchange" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="50" width="375" height="130"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="130" id="b95-mT-qeF"/>
+                                </constraints>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZvL-7J-nru" customClass="CurrencyHorizontalScrollView" customModule="CurrencyExchange" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="210" width="375" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZvL-7J-nru" customClass="CurrencyHorizontalScrollView" customModule="CurrencyExchange" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="215" width="375" height="130"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="130" id="sB3-Bx-f7L"/>
+                                </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ume-B7-OTp">
+                                <rect key="frame" x="147.5" y="380" width="80" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="cV9-60-q0C"/>
+                                </constraints>
+                                <state key="normal" title="Exchange">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="Exchange_Button_TouchUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NA7-L3-aIf"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="FxV-rl-Ugi" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="0ov-AO-RkV"/>
+                            <constraint firstItem="ZvL-7J-nru" firstAttribute="top" secondItem="FxV-rl-Ugi" secondAttribute="bottom" constant="35" id="BTx-AM-D7s"/>
+                            <constraint firstItem="ZvL-7J-nru" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Dxe-cu-gfb"/>
+                            <constraint firstItem="FxV-rl-Ugi" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="F9P-er-r1T"/>
+                            <constraint firstItem="ume-B7-OTp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="JsV-98-Sh8"/>
+                            <constraint firstItem="FxV-rl-Ugi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="YeL-B5-NVN"/>
+                            <constraint firstItem="ZvL-7J-nru" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="e40-Nd-m3X"/>
+                            <constraint firstItem="ume-B7-OTp" firstAttribute="top" secondItem="ZvL-7J-nru" secondAttribute="bottom" constant="35" id="gf2-0d-qgj"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="DebitAccountCards" destination="FxV-rl-Ugi" id="6Ay-nV-Lst"/>
+                        <outlet property="ExchangeButton" destination="ume-B7-OTp" id="gmh-Bb-lRa"/>
                         <outlet property="ReplenishmentAccountCards" destination="ZvL-7J-nru" id="Ben-Nj-eQd"/>
                     </connections>
                 </viewController>
