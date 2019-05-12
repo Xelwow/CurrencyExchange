@@ -35,7 +35,7 @@ class ViewController: UIViewController, CurrencyCardViewProtocol, CurrencyHorizo
         DebitAccountCards.delegate = self
         DebitAccountCards.DelegateAllCards(to: self)
         
-        timer = Timer.scheduledTimer(withTimeInterval: 3, repeats: true, block: { (schedTimer) in
+        timer = Timer.scheduledTimer(withTimeInterval: 30, repeats: true, block: { (schedTimer) in
             self.Exchanger.UpdateRates {
                 self.updateTextFields()
             }
@@ -124,14 +124,9 @@ class ViewController: UIViewController, CurrencyCardViewProtocol, CurrencyHorizo
     }
     
     @IBAction func Exchange_Button_TouchUpInside(_ sender: Any) {
-        var alert : UIAlertController!
-        if Exchanger.Exchange() {
-            updateTextFields()
-            alert = UIAlertController(title: "Success", message: "Exchange was succesful", preferredStyle: .alert)
-        }
-        else {
-            alert = UIAlertController(title: "Error", message: "Unable to exchange selected currencies", preferredStyle: .alert)
-        }
+        let message = Exchanger.Exchange()
+        updateTextFields()
+        let alert = UIAlertController(title: "Exchange", message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
             alert.dismiss(animated: true, completion: nil)
         }))

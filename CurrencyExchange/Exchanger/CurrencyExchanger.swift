@@ -37,6 +37,7 @@ class CurrencyExchanger {
             DebitAccountIndex = 0
             ReplenishmentAccountIndex = 0
         }
+        LoadAccountInfos()
     }
     
     func rate(from: String, to: String) -> Double{
@@ -116,18 +117,19 @@ class CurrencyExchanger {
         }
     }
     
-    func Exchange() -> Bool {
+    func Exchange() -> String {
         
-        if DebitAccountIndex == ReplenishmentAccountIndex { return false }
-        if DebitExchangeSum == 0 { return false }
-        if DebitExchangeSum > CurrencyAccountInfos[DebitAccountIndex].Amount { return false }
+        if DebitAccountIndex == ReplenishmentAccountIndex { return "Can't exchange from same currency account" }
+        if DebitExchangeSum == 0 { return "Exchangeble sum can't be equal to 0" }
+        if DebitExchangeSum > CurrencyAccountInfos[DebitAccountIndex].Amount { return "Not enough founds to exchange" }
         
         CurrencyAccountInfos[DebitAccountIndex].Amount -= DebitExchangeSum
         CurrencyAccountInfos[ReplenishmentAccountIndex].Amount += ReplenishmentExchangeSum
         
         DebitExchangeSum = 0
         ReplenishmentExchangeSum = 0
-        return true
+        SaveAccountInfos()
+        return "Exchange made succesfully"
     }
     func AccountsInformation() -> [CurrencyAccountInfo]{
         return CurrencyAccountInfos
@@ -154,5 +156,19 @@ class CurrencyExchanger {
             }
         }
         task.resume()
+    }
+    func LoadAccountInfos(){
+        for account in CurrencyAccountInfos {
+            if let data = UserDefaults.standard.value(forKey: account.Currency) as? Double {
+                account.Amount = data
+            }
+        }
+    }
+    
+    func SaveAccountInfos(){
+        for account in CurrencyAccountInfos{
+           let data = account.Amount
+           UserDefaults.standard.set(data, forKey: account.Currency)
+        }
     }
 }
